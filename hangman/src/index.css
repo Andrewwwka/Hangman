@@ -18,7 +18,8 @@ h1 {
 }
 .post-base {
     position: absolute;
-    bottom: 500px;
+    margin-top: 20px;
+    bottom: 300px;
     left: 50%;
     width: 200px;
     height: 20px;
@@ -27,7 +28,8 @@ h1 {
 }
 .post-vertical {
     position: absolute;
-    bottom: 520px;
+    margin-top: 20px;
+    bottom: 300px;
     left: 50%;
     width: 20px;
     height: 300px;
@@ -35,22 +37,22 @@ h1 {
     transform: translateX(-50%);
 }
 .post-horizontal {
-    position: absolute;
-    bottom: 800px;
-    left: 1010px;
-    width: 105px;
-    height: 20px;
-    background-color: #8B4513;
-    transform: translateX(-50%);
+  position: absolute;
+  bottom: calc(300px + 300px); /* Aligns with the top of the vertical post */
+  left: calc(50% + 56px - 11px); /* Shifted to the right of the vertical post */
+  width: 110px;
+  height: 20px;
+  background-color: #8B4513;
+  transform: translateX(-50%);
 }
 .post-rope {
-    position: absolute;
-    bottom: 750px;
-    left: 1057px;
-    width: 11px;
-    height: 51px;
-    background-color: #8B4513;
-    transform: translateX(-50%);
+  position: absolute;
+  bottom: calc(300px + 300px - 51px); /* Aligns with the top of the horizontal post */
+  left: calc(50% + 99px - 5px); /* Shifted to the right of the horizontal post */
+  width: 11px;
+  height: 51px;
+  background-color: #8B4513;
+  transform: translateX(-50%);
 }
 
 main {

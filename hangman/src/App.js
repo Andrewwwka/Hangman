@@ -24,6 +24,9 @@ function App() {
     }
 
   };
+  const letterPress = (letter) => {
+    console.log(`Letter pressed: ${letter}`);
+  };
 
   useEffect(() => {
     fetchRandomWord();
