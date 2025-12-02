@@ -15,8 +15,44 @@ h1 {
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 450px;
-
 }
+.post-base {
+    position: absolute;
+    bottom: 500px;
+    left: 50%;
+    width: 200px;
+    height: 20px;
+    background-color: #8B4513;
+    transform: translateX(-50%);
+}
+.post-vertical {
+    position: absolute;
+    bottom: 520px;
+    left: 50%;
+    width: 20px;
+    height: 300px;
+    background-color: #8B4513;
+    transform: translateX(-50%);
+}
+.post-horizontal {
+    position: absolute;
+    bottom: 800px;
+    left: 1010px;
+    width: 105px;
+    height: 20px;
+    background-color: #8B4513;
+    transform: translateX(-50%);
+}
+.post-rope {
+    position: absolute;
+    bottom: 750px;
+    left: 1057px;
+    width: 11px;
+    height: 51px;
+    background-color: #8B4513;
+    transform: translateX(-50%);
+}
+
 main {
     text-align: center;
     margin-top: 50px;
