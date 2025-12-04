@@ -83,6 +83,11 @@ function App() {
 
       const currentWord = Array.from(letterBoxes).map((box) => box.textContent).join('');
       if (currentWord === word) {
+        // Disable further input
+        const buttons = document.querySelectorAll('.keyboard button');
+        buttons.forEach((button) => {
+          button.disabled = true;
+        });
         setAlertMessage('Congratulations! You guessed the word!');
         setShowAlert(true);
       }
@@ -90,6 +95,11 @@ function App() {
       strikes += 1;
       hangmanDrawing();
       if (strikes >= maxStrikes) {
+        // Disable further input
+        const buttons = document.querySelectorAll('.keyboard button');
+        buttons.forEach((button) => {
+          button.disabled = true;
+        });
         setAlertMessage(`Game Over! The word was: ${word}`);
         setShowAlert(true);
       }
