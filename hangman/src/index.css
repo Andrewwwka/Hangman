@@ -43,21 +43,6 @@ h1 {
     transform: translateX(-50%);
 }
 
-@media (max-width: 768px) {
-    .post-base,
-    .post-vertical,
-    .post-horizontal,
-    .post-rope {
-        bottom: 200px; /* Adjust bottom position for smaller screens */
-    }
-    .word-display {
-        font-size: 30px;/* Adjust word display position for smaller screens */
-    }
-    .keyboard {
-        margin-top: 50vh; /* Adjust keyboard position for smaller screens */
-    }
-}
-
 .post-horizontal {
   position: absolute;
   bottom: calc(300px + 300px); /* Aligns with the top of the vertical post */
