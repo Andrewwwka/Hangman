@@ -12,13 +12,15 @@ h1 {
     text-align: center;
     padding: 20px;
     background-color: #e8e69d;
-    border-radius: 8px; 
+    height: 80px; 
+    line-height: 80px;
+    margin-bottom: 50px; /* Add more space below the header */
 }
 .keyboard {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 60vh; /* Adjusts dynamically based on viewport height */
+    margin-top: 75vh; /* Adjusts dynamically based on viewport height */
 }
 .post-base {
     position: absolute;
@@ -40,6 +42,22 @@ h1 {
     background-color: #000000;
     transform: translateX(-50%);
 }
+
+@media (max-width: 768px) {
+    .post-base,
+    .post-vertical,
+    .post-horizontal,
+    .post-rope {
+        bottom: 200px; /* Adjust bottom position for smaller screens */
+    }
+    .word-display {
+        font-size: 30px;/* Adjust word display position for smaller screens */
+    }
+    .keyboard {
+        margin-top: 50vh; /* Adjust keyboard position for smaller screens */
+    }
+}
+
 .post-horizontal {
   position: absolute;
   bottom: calc(300px + 300px); /* Aligns with the top of the vertical post */
@@ -122,6 +140,15 @@ h1 {
     transform-origin: left;
     border: 3px solid #000;
 }
+/* Initially hide all figure parts */
+.figure-head,
+.figure-body,
+.figure-arm-left,
+.figure-arm-right,
+.figure-leg-left,
+.figure-leg-right {
+  display: none;
+}
 .word-display {
   color: black;
   font-size: 45px;
@@ -137,6 +164,7 @@ h1 {
 main {
     text-align: center;
     margin-top: 50px;
+    padding-top: 100px;
 }
 button {
     margin: 5px;
@@ -164,4 +192,25 @@ button:disabled {
 .status {
     font-size: 18px;
     margin-top: 20px;
-}   
+}  
+.alert-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border: 2px solid #000;
+    padding: 20px;
+    text-align: center;
+    z-index: 1000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+} 
+.alert-box p {
+    font-size: 20px;
+    background-color: white;
+    margin-bottom: 20px;
+}
+.alert-box button {
+    padding: 10px 20px;
+    font-size: 16px;
+}

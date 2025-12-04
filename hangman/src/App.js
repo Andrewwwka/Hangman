@@ -3,6 +3,33 @@ import React, { useState, useEffect} from 'react';
 function App() {
   const [word, setWord] = useState('');
   const [loading, setLoading] = useState(true);
+  const [alertMessage, setAlertMessage] = useState('');
+  const [showAlert, setShowAlert] = useState(false);
+
+  /* variable to track strikes */
+  let strikes = 0;
+  const maxStrikes = 6;
+
+  /* function to update hangman drawing based on strikes */
+  function hangmanDrawing() {
+    const figureParts = [
+      'figure-head',
+      'figure-body',
+      'figure-arm-left',
+      'figure-arm-right',
+      'figure-leg-left',
+      'figure-leg-right',
+    ];
+
+    figureParts.forEach((part, index) => {
+      const element = document.querySelector(`.${part}`);
+      if (index < strikes) {
+        element.style.display = 'block';
+      } else {
+        element.style.display = 'none';
+      }
+    });
+  }
 
   /* function to fetch a random word from an API */
   const fetchRandomWord = async () => {
@@ -27,6 +54,8 @@ function App() {
   };
   /* function to reset the board */
   const resetBoard = () => {
+    strikes = 0;
+    hangmanDrawing();
     const letterBoxes = document.querySelectorAll('.letter-box');
     letterBoxes.forEach((box) => {
       box.textContent = '_';
@@ -34,7 +63,10 @@ function App() {
     const buttons = document.querySelectorAll('.keyboard button');
     buttons.forEach((button) => {
       button.disabled = false;
+
     });
+    setShowAlert(false);
+    fetchRandomWord();
   }
 
   /* function to handle letter press */
@@ -48,8 +80,19 @@ function App() {
           letterBoxes[index].textContent = letter;
         }
       });
+
+      const currentWord = Array.from(letterBoxes).map((box) => box.textContent).join('');
+      if (currentWord === word) {
+        setAlertMessage('Congratulations! You guessed the word!');
+        setShowAlert(true);
+      }
     } else {
-      console.log(`Wrong guess: ${letter}`);
+      strikes += 1;
+      hangmanDrawing();
+      if (strikes >= maxStrikes) {
+        setAlertMessage(`Game Over! The word was: ${word}`);
+        setShowAlert(true);
+      }
     }
 
   const buttons = document.querySelectorAll('.keyboard button');
@@ -71,9 +114,11 @@ function App() {
         <p>Loading...</p>
       ) : (
         <div>
+          {/* 
           <p>Random Word: {word}</p>
           <button onClick={fetchRandomWord}>Fetch New Word</button>
           <button onClick={resetBoard}>Reset Board</button>
+          */}
           <div className ="hangman-post">
             <div className ="post-base"></div>
             <div className ="post-vertical"></div>
@@ -96,33 +141,18 @@ function App() {
             ))}
           </div>
           <div className="keyboard">
-            <button onClick={() => letterPress('A')}>A</button>
-            <button onClick={() => letterPress('B')}>B</button>
-            <button onClick={() => letterPress('C')}>C</button>
-            <button onClick={() => letterPress('D')}>D</button>
-            <button onClick={() => letterPress('E')}>E</button>
-            <button onClick={() => letterPress('F')}>F</button>
-            <button onClick={() => letterPress('G')}>G</button>
-            <button onClick={() => letterPress('H')}>H</button>
-            <button onClick={() => letterPress('I')}>I</button>
-            <button onClick={() => letterPress('J')}>J</button>
-            <button onClick={() => letterPress('K')}>K</button>
-            <button onClick={() => letterPress('L')}>L</button>
-            <button onClick={() => letterPress('M')}>M</button>
-            <button onClick={() => letterPress('N')}>N</button>
-            <button onClick={() => letterPress('O')}>O</button>
-            <button onClick={() => letterPress('P')}>P</button>
-            <button onClick={() => letterPress('Q')}>Q</button>
-            <button onClick={() => letterPress('R')}>R</button>
-            <button onClick={() => letterPress('S')}>S</button>
-            <button onClick={() => letterPress('T')}>T</button>
-            <button onClick={() => letterPress('U')}>U</button>
-            <button onClick={() => letterPress('V')}>V</button>
-            <button onClick={() => letterPress('W')}>W</button>
-            <button onClick={() => letterPress('X')}>X</button>
-            <button onClick={() => letterPress('Y')}>Y</button>
-            <button onClick={() => letterPress('Z')}>Z</button>
+          {'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map((letter) => (
+              <button key={letter} onClick={() => letterPress(letter)}>
+                {letter}
+              </button>
+          ))}
           </div>
+        </div>
+      )}
+      {showAlert && (
+        <div className="alert-box">
+          <p>{alertMessage}</p>
+          <button onClick={resetBoard}>Reset Game</button>
         </div>
       )}
     </div>
