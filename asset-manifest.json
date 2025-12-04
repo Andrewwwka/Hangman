@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Hangman/static/css/main.63f1cf9c.css",
-    "main.js": "/Hangman/static/js/main.4b17a44b.js",
+    "main.css": "/Hangman/static/css/main.cbac92e7.css",
+    "main.js": "/Hangman/static/js/main.97327509.js",
     "static/js/453.12c95d79.chunk.js": "/Hangman/static/js/453.12c95d79.chunk.js",
     "index.html": "/Hangman/index.html",
-    "main.63f1cf9c.css.map": "/Hangman/static/css/main.63f1cf9c.css.map",
-    "main.4b17a44b.js.map": "/Hangman/static/js/main.4b17a44b.js.map",
+    "main.cbac92e7.css.map": "/Hangman/static/css/main.cbac92e7.css.map",
+    "main.97327509.js.map": "/Hangman/static/js/main.97327509.js.map",
     "453.12c95d79.chunk.js.map": "/Hangman/static/js/453.12c95d79.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.63f1cf9c.css",
-    "static/js/main.4b17a44b.js"
+    "static/css/main.cbac92e7.css",
+    "static/js/main.97327509.js"
   ]
 }
