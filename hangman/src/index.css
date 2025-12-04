@@ -60,6 +60,14 @@ h1 {
   background-color: #000000;
   transform: translateX(-50%);
 }
+@media (max-width: 768px) 
+{ h1 { display: none;}
+.word-display {
+    font-size: 20px;
+    letter-spacing: 10px;
+    bottom: 25%;
+}
+}
 .figure-head {
     width: 50px;
     height: 50px;
@@ -137,13 +145,17 @@ h1 {
   color: black;
   font-size: 45px;
   font-weight: bold;
-  letter-spacing: 15px;
+  letter-spacing: 12px;
   margin-bottom: 20px;
   position: absolute;
   bottom: 180px;
   left: 50%;
   transform: translateX(-50%);
   white-space: nowrap;
+  max-width: 90%;
+  overflow: hidden;
+  
+  
 }
 main {
     text-align: center;
