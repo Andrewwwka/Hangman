@@ -18,7 +18,7 @@ h1 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 450px;
+    margin-top: 60vh; /* Adjusts dynamically based on viewport height */
 }
 .post-base {
     position: absolute;
@@ -69,17 +69,70 @@ h1 {
     background-color: rgb(146, 95, 166);
     margin: 0 auto;
 }
-.word-display {
-    color: #e486c9;
-    font-size: 45px;
-    letter-spacing: 15px;
-    margin-bottom: 20px;
-    position: relative;
-    justify-content: center;
-    left: 30%;
+.figure-body {
+    width: 13px;
+    height: 95px;
+    bottom: calc(300px + 320px - 51px - 50px - 100px); /* Positioned below the head */
+    left: calc(50% + 94.5px - 5px); /* Centered under the head */
     position: absolute;
-    bottom: 180px;
-
+    background-color: rgb(146, 95, 166);
+    border: 3px solid #000;
+}
+.figure-leg-left {
+    width: 70px;
+    height: 10px;
+    bottom: calc(300px + 290px - 51px - 50px - 70px); 
+    left: calc(50% + 98px - 75px); /* Positioned to the left of the body */
+    position: absolute;
+    background-color: rgb(146, 95, 166);
+    transform: rotate(-45deg);
+    transform-origin: right;
+    border: 3px solid #000;
+}
+.figure-leg-right {
+    width: 70px;
+    height: 10px;
+    bottom: calc(300px + 290px - 51px - 50px - 70px);
+    left: calc(50% + 99px); /* Positioned to the right of the body */
+    position: absolute;
+    background-color: rgb(146, 95, 166);
+    transform: rotate(45deg);
+    transform-origin: left;
+    border: 3px solid #000;
+}
+.figure-arm-left {
+    width: 70px;
+    height: 10px;
+    bottom: calc(300px + 290px - 51px - 50px - 10px); 
+    left: calc(50% + 84px - 65px); /* Positioned to the left of the body */
+    position: absolute;
+    background-color: rgb(146, 95, 166);
+    transform: rotate(45deg);
+    transform-origin: right;
+    border: 3px solid #000;
+}
+.figure-arm-right {
+    width: 70px;
+    height: 10px;
+    bottom: calc(300px + 290px - 51px - 50px - 10px); 
+    left: calc(50% + 103px); /* Positioned to the right of the body */
+    position: absolute;
+    background-color: rgb(146, 95, 166);
+    transform: rotate(-45deg);
+    transform-origin: left;
+    border: 3px solid #000;
+}
+.word-display {
+  color: black;
+  font-size: 45px;
+  font-weight: bold;
+  letter-spacing: 15px;
+  margin-bottom: 20px;
+  position: absolute;
+  bottom: 180px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
 }
 main {
     text-align: center;
