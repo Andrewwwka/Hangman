@@ -41,7 +41,9 @@ function App() {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
       const data = await response.json();
-
+      if (data[0].length > 10) {
+        fetchRandomWord();
+      }
       const randomWord = data[0].toUpperCase();
       setWord(randomWord);
     } catch (error) {
