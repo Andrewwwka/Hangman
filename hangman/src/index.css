@@ -148,9 +148,9 @@ h1 {
 }
 .word-display {
   color: black;
-  font-size: 45px;
+  font-size: 40px;
   font-weight: bold;
-  letter-spacing: 12px;
+  letter-spacing: 9px;
   margin-bottom: 20px;
   position: absolute;
   bottom: 180px;
